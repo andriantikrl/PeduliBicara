@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Peduli Bicara</string>
+    <string name="hello">Halo,</string>
+    <string name="module">Modul</string>
+    <string name="lorem_ipsum_15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tristique a ex vel dictum. Proin.</string>
+    <string name="your_score">Skor Kamu</string>
+    <string name="main_menu">Menu Utama</string>
+    <string name="set_question">Pilih Soal</string>
+    <string name="next">Lanjut</string>
+    <string name="do_not_have_account">Belum punya akun?</string>
+    <string name="register">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="have_account">Sudah punya akun?</string>
+    <string name="parents_name">Nama orang tua</string>
+    <string name="child_name">Nama anak</string>
+    <string name="confirm_password">Konfirmasi password</string>
+    <string name="body_parts">Bagian Tubuh</string>
+    <string name="body_parts_description">Terdiri atas berbagai jenis bagian tubuh</string>
+    <string name="food">Makanan</string>
+    <string name="food_description">Terdiri atas berbagai jenis makanan</string>
+    <string name="animals">Hewan</string>
+    <string name="animals_description">Terdiri atas berbagai jenis hewan</string>
+    <string name="module_description">Modul terdiri dari 3 kategori (Hewan, Makanan dan Bagian Tubuh)</string>
+    <string name="guess_card">Tebak Kartu</string>
+    <string name="guess_voice_description">Diberikan beberapa opsi kartu secara acak untuk menjawab pertanyaan via suara</string>
+    <string name="guess_voice">Tebak suara</string>
+    <string name="guess_card_description">Menebak kartu yang ditampilkan, dengan menggunakan sistem speech recognition</string>
+    <string name="search">Cari…</string>
+    <string name="games">Permainan</string>
+    <string name="head">Kepala</string>
+    <string name="lips">Bibir</string>
+    <string name="nose">Hidung</string>
+    <string name="eyes">Mata</string>
+</resources>

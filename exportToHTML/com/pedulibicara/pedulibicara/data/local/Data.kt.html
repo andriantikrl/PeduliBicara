@@ -1,0 +1,377 @@
+<html>
+<head>
+<title>Data.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Data.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.pedulibicara.pedulibicara.data.local</span>
+
+<span class="s1">import com.pedulibicara.pedulibicara.R</span>
+<span class="s1">import com.pedulibicara.pedulibicara.data.model.ModuleCategory</span>
+<span class="s1">import com.pedulibicara.pedulibicara.data.model.MenuCategory</span>
+<span class="s1">import com.pedulibicara.pedulibicara.data.model.ModuleItem</span>
+<span class="s1">import com.pedulibicara.pedulibicara.utils.Strings</span>
+
+<span class="s0">object </span><span class="s1">Data {</span>
+
+    <span class="s0">fun </span><span class="s1">getModuleCategory() : List&lt;ModuleCategory&gt; {</span>
+        <span class="s0">return </span><span class="s1">listOf(</span>
+            <span class="s1">ModuleCategory(</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.body_parts)</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.body_parts_description)</span><span class="s0">,</span>
+                <span class="s1">MODULE_BODY_PARTS</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleCategory(</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.food)</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.food_description)</span><span class="s0">,</span>
+                <span class="s1">MODULE_FOOD</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleCategory(</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.animals)</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.animals_description)</span><span class="s0">,</span>
+                <span class="s1">MODULE_ANIMALS</span>
+            <span class="s1">)</span>
+        <span class="s1">)</span>
+    <span class="s1">}</span>
+
+    <span class="s0">fun </span><span class="s1">getMenuCategory() : Map&lt;String</span><span class="s0">, </span><span class="s1">MenuCategory&gt; {</span>
+        <span class="s0">return </span><span class="s1">mapOf(</span>
+            <span class="s1">MENU_MODULE to MenuCategory(</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.module)</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.module_description)</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">MENU_GUESS_CARD to MenuCategory(</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.guess_card)</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.guess_card_description)</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">MENU_GUESS_VOICE to MenuCategory(</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.guess_voice)</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.guess_voice_description)</span>
+            <span class="s1">)</span>
+        <span class="s1">)</span>
+    <span class="s1">}</span>
+
+    <span class="s0">fun </span><span class="s1">getModuleItem(category: String) : List&lt;ModuleItem&gt; {</span>
+        <span class="s0">val </span><span class="s1">listModuleItem = mutableListOf&lt;ModuleItem&gt;()</span>
+
+        <span class="s0">for </span><span class="s1">(item </span><span class="s0">in </span><span class="s1">getAllModuleItem()) {</span>
+            <span class="s0">if </span><span class="s1">(item.category == category) {</span>
+                <span class="s1">listModuleItem.add(item)</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+
+        <span class="s0">return </span><span class="s1">listModuleItem</span>
+    <span class="s1">}</span>
+
+    <span class="s0">fun </span><span class="s1">getAllModuleItem() = listOf(</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kepala&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;bibir&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;Mata&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;dahi&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;hidung&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;jari&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kuku&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;lengan&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;lidah&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;mulut&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;pinggang&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;pundak&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+        <span class="s1">)</span><span class="s0">,</span>
+        <span class="s1">ModuleItem(</span>
+            <span class="s1">MODULE_BODY_PARTS</span><span class="s0">,</span>
+            <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;rambut&quot;</span><span class="s1">)</span><span class="s0">,</span>
+            <span class="s2">0</span><span class="s0">,</span>
+            <span class="s2">0</span>
+
+    <span class="s1">)</span>
+        <span class="s0">fun </span><span class="s1">getAllModuleItem() = listOf(</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;anggur&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;apel&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;bubur&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;eskrim&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;jeruk&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;mangga&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;melon&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;nanas&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;nasi&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;nasiG&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;pepaya&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;sate&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;semangka&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;sereal&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span><span class="s0">,</span>
+            <span class="s1">ModuleItem(</span>
+                <span class="s1">MODULE_FOOD</span><span class="s0">,</span>
+                <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;telur&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                <span class="s2">0</span><span class="s0">,</span>
+                <span class="s2">0</span>
+            <span class="s1">)</span>
+        <span class="s1">)</span>
+            <span class="s0">fun </span><span class="s1">getAllModuleItem() = listOf(</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;anjing&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;ayam&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;bebek&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;buaya&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;cicak&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;harimau&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;ikan&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;jerapah&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kambing&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kangguru&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kelinci&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kepiting&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kucing&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;kupukupu&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;nyamuk&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;sapi&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;semut&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">ModuleItem(</span>
+                    <span class="s1">MODULE_ANIMALS</span><span class="s0">,</span>
+                    <span class="s1">Strings.get(R.string.</span><span class="s3">&quot;ubur&quot;</span><span class="s1">)</span><span class="s0">,</span>
+                    <span class="s2">0</span><span class="s0">,</span>
+                    <span class="s2">0</span>
+
+
+
+
+    <span class="s1">const </span><span class="s0">val </span><span class="s1">MENU_MODULE = </span><span class="s3">&quot;menu_module&quot;</span>
+    <span class="s1">const </span><span class="s0">val </span><span class="s1">MENU_GUESS_CARD = </span><span class="s3">&quot;menu_guess_card&quot;</span>
+    <span class="s1">const </span><span class="s0">val </span><span class="s1">MENU_GUESS_VOICE = </span><span class="s3">&quot;menu_guess_voice&quot;</span>
+
+    <span class="s1">const </span><span class="s0">val </span><span class="s1">MODULE_BODY_PARTS = </span><span class="s3">&quot;module_body_parts&quot;</span>
+    <span class="s1">const </span><span class="s0">val </span><span class="s1">MODULE_FOOD = </span><span class="s3">&quot;module_food&quot;</span>
+    <span class="s1">const </span><span class="s0">val </span><span class="s1">MODULE_ANIMALS = </span><span class="s3">&quot;module_animals&quot;</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

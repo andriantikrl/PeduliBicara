@@ -5,20 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
+    style="@style/background"
     tools:context=".ui.auth.LoginFragment" >
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:padding="16dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/iv_logo">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.pedulibicara.pedulibicara.utils.EmailEditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
             android:hint="@string/email" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -27,14 +41,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_email">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.pedulibicara.pedulibicara.utils.PasswordEditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:ems="10"
             android:hint="@string/password" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -62,6 +79,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
             android:layout_weight="1"
             android:text="@string/have_account" />
 
@@ -70,7 +88,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:fontFamily="@font/poppins_medium"
             android:layout_weight="1"
+            style="@style/textButton"
             android:text="@string/register" />
     </LinearLayout>
 

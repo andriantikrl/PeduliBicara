@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    android:background="@color/purple_200"
+    style="@style/background"
     tools:context=".ui.auth.PickGenderFragment">
 
     <LinearLayout
@@ -19,13 +19,16 @@
         android:baselineAligned="false">
 
         <include
+            android:id="@+id/gv_boy"
             layout="@layout/gender_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            />
 
         <include
+            android:id="@+id/gv_girl"
             layout="@layout/gender_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

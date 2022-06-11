@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
+    style="@style/background"
     tools:context=".ui.guessvoice.SetQuestionCountFragment">
-
 
     <TextView
         android:id="@+id/textView4"
@@ -19,25 +19,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <NumberPicker
-        android:id="@+id/numberPicker"
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/nb_question_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:np_orientation="horizontal"
+        app:np_min="5"
+        app:np_max="20"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="@drawable/rounded_view"
         android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberPicker" />
+        app:layout_constraintTop_toBottomOf="@+id/nb_question_count" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

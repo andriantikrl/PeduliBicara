@@ -48,7 +48,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/search"
             tools:ignore="TextContrastCheck" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <ScrollView
@@ -88,19 +87,18 @@
                 android:textSize="15sp" />
 
             <include
-                android:id="@+id/mc_guess_voice"
+                android:id="@+id/mc_guess_card"
                 layout="@layout/module_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" />
 
-            <ImageView
-                android:id="@+id/imageView9"
+            <include
+                android:id="@+id/mc_guess_voice"
+                layout="@layout/module_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/kartu" />
-
+                android:layout_marginTop="16dp" />
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
